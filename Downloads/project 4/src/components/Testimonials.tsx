@@ -83,20 +83,24 @@ export default function Testimonials() {
         </div>
 
         <div className="mt-20 text-center">
-          <div className="inline-flex items-center gap-12 p-10 bg-gradient-to-r from-black/10 to-[#bf1b2c]/10 rounded-2xl shadow-lg">
-            <div className="text-center">
-              <div className="text-5xl font-bold text-[#bf1b2c] mb-2"><CountUp to={4.9} duration={1.4} className="inline-block" />/5</div>
-              <div className="text-base text-gray-600 font-medium">Average Rating</div>
+          <div className="w-full max-w-4xl mx-auto bg-gradient-to-r from-black/10 to-[#bf1b2c]/10 rounded-2xl shadow-lg p-6 sm:p-10 flex flex-col sm:flex-row items-center sm:justify-center gap-6 sm:gap-12">
+            <div className="text-center flex-1">
+              <div className="text-3xl sm:text-5xl font-bold text-[#bf1b2c] mb-1 sm:mb-2"><CountUp to={4.9} duration={1.4} className="inline-block" />/5</div>
+              <div className="text-sm sm:text-base text-gray-600 font-medium">Average Rating</div>
             </div>
-            <div className="w-px h-16 bg-gray-300"></div>
-            <div className="text-center">
-              <div className="text-5xl font-bold text-[#bf1b2c] mb-2"><CountUp to={500} duration={1.6} className="inline-block" />+</div>
-              <div className="text-base text-gray-600 font-medium">Happy Clients</div>
+
+            <div className="hidden sm:block w-px h-16 bg-gray-300" aria-hidden />
+
+            <div className="text-center flex-1">
+              <div className="text-3xl sm:text-5xl font-bold text-[#bf1b2c] mb-1 sm:mb-2"><CountUp to={500} duration={1.6} className="inline-block" />+</div>
+              <div className="text-sm sm:text-base text-gray-600 font-medium">Happy Clients</div>
             </div>
-            <div className="w-px h-16 bg-gray-300"></div>
-            <div className="text-center">
-              <div className="text-5xl font-bold text-[#bf1b2c] mb-2"><CountUp to={98} duration={1.6} className="inline-block" />%</div>
-              <div className="text-base text-gray-600 font-medium">Would Recommend</div>
+
+            <div className="hidden sm:block w-px h-16 bg-gray-300" aria-hidden />
+
+            <div className="text-center flex-1">
+              <div className="text-3xl sm:text-5xl font-bold text-[#bf1b2c] mb-1 sm:mb-2"><CountUp to={98} duration={1.6} className="inline-block" />%</div>
+              <div className="text-sm sm:text-base text-gray-600 font-medium">Would Recommend</div>
             </div>
           </div>
         </div>
