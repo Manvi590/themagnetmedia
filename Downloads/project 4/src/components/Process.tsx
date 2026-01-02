@@ -36,6 +36,7 @@ interface ProcessCardProps
     VariantProps<typeof processCardVariants> {
   itemsLength: number
   index: number
+  isVertical?: boolean
 }
 
 const ContainerScrollContext = React.createContext<
@@ -111,6 +112,7 @@ export const ProcessCard: React.FC<ProcessCardProps> = ({
   size,
   itemsLength,
   index,
+  isVertical,
   children,
   ...props
 }) => {
@@ -126,6 +128,12 @@ export const ProcessCard: React.FC<ProcessCardProps> = ({
     [0, -((width ?? 400) + 24) * index]
   )
   
+  const y = useTransform(
+    scrollYProgress,
+    [start, end],
+    [50, 0]
+  )
+
   const opacity = useTransform(
     scrollYProgress,
     [start - 0.1, start, end, end + 0.1],
@@ -136,7 +144,7 @@ export const ProcessCard: React.FC<ProcessCardProps> = ({
     <motion.div
       ref={ref}
       style={{
-        x,
+        ...(isVertical ? { y } : { x }),
         opacity,
         ...style,
       }}
@@ -184,9 +192,9 @@ export default function Process() {
 
         <ContainerScroll>
           <ContainerSticky className="py-20">
-            <div className="flex gap-8 px-8">
-              {steps.map((s, i) => (
-                <ProcessCard key={i} itemsLength={steps.length} index={i} size="md" variant="indigo">
+              <div className="flex flex-col sm:flex-row gap-8 px-8">
+                {steps.map((s, i) => (
+                  <ProcessCard key={i} itemsLength={steps.length} index={i} size="md" variant="indigo" isVertical={typeof window !== 'undefined' ? window.innerWidth < 640 : false}>
                   <ProcessCardTitle>
                     <div className="inline-block bg-[#bf1b2c]/10 text-[#bf1b2c] px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider mb-3">
                       {s.titleSmall}
